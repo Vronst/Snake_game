@@ -5,21 +5,12 @@ from food import Food
 from scoreboard import Scoreboard
 
 screen = turtle.Screen()
-# harold = turtle.Turtle("square")
+
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Hungry Snake")
 screen.tracer(0)
-# harold.color("green")
-# snakes = []
-# x = 0
-# for _ in range(3):
-#     s = turtle.Turtle("square")
-#     s.penup()
-#     s.color("green")
-#     s.setpos(x, 0)
-#     snakes.append(s)
-#     x -= 20
+
 snake = Snake()
 food = Food()
 scoreboard = Scoreboard()
@@ -43,17 +34,14 @@ while game_is_on:
 
     # Detect collision with wall.
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
-        # scoreboard.game_over()
-        # game_is_on = False
+        
         scoreboard.reset()
         snake.reset()
     # Detect collision with tail.
     for one in snake.snakes[1:]:
-        # if one == snake.head:
-        #     pass
+        
         if snake.head.distance(one) < 10:
-            # game_is_on = False
-            # scoreboard.game_over()
+           
             scoreboard.reset()
             snake.reset()
 
